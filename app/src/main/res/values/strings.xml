@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Монитор трафика</string>
+    <string name="app_icon_description">Иконка приложения</string>
+
+    <string name="nav_overview">Обзор</string>
+    <string name="nav_apps">Приложения</string>
+    <string name="nav_limits">Лимиты</string>
+
+    <string name="period_day">День</string>
+    <string name="period_week">Неделя</string>
+    <string name="period_month">Месяц</string>
+
+    <string name="channel_status_name">Мониторинг трафика</string>
+    <string name="channel_status_description">Постоянное уведомление о расходе мобильного трафика</string>
+    <string name="channel_warnings_name">Предупреждения о лимите</string>
+    <string name="channel_warnings_description">Уведомления, когда трафик приближается к лимиту</string>
+
+    <string name="notification_status_title">Монитор трафика</string>
+    <string name="notification_loading">Подсчёт трафика…</string>
+    <string name="notification_no_access">Нет доступа к статистике трафика</string>
+    <string name="notification_error">Не удалось получить статистику</string>
+    <string name="notification_month_usage">За месяц: %1$s из %2$d МБ</string>
+    <string name="notification_month_usage_no_limit">За месяц: %1$s. Лимит не задан</string>
+    <string name="notification_stop">Остановить</string>
+
+    <string name="warning_80_title">Осталось мало трафика</string>
+    <string name="warning_80_text">Использовано %1$d%% месячного лимита. Осталось %2$s.</string>
+    <string name="warning_100_title">Лимит трафика превышен</string>
+    <string name="warning_100_text">Израсходовано %1$s при лимите %2$d МБ. Трафик продолжает расходоваться.</string>
+</resources>

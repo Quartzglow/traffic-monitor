@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.example.trafficmonitor.ui.MeshBackgroundView
+        android:id="@+id/meshBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ================= Верхняя панель ================= -->
+        <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.TM.Label"
+                    tools:text="ПЯТНИЦА, 30 ОКТЯБРЯ" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Обзор"
+                    android:textAppearance="@style/TextAppearance.TM.H1" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/brandBadge"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:background="@drawable/bg_monogram"
+                android:fontFamily="@font/manrope_extrabold"
+                android:gravity="center"
+                android:letterSpacing="0.02"
+                android:text="MT"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:fillViewport="true"
+                android:overScrollMode="never">
+
+                <LinearLayout
+                    android:id="@+id/contentRoot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="118dp">
+
+                    <!-- =========================================================
+                         ОБЗОР
+                    ========================================================== -->
+                    <LinearLayout
+                        android:id="@+id/sectionOverview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.example.trafficmonitor.ui.GlassLayout
+                            android:id="@+id/cardHero"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:glassRadius="30dp"
+                            app:glassShadow="false">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingStart="18dp"
+                                android:paddingTop="18dp"
+                                android:paddingEnd="18dp"
+                                android:paddingBottom="16dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/tvMonthLabel"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:textAppearance="@style/TextAppearance.TM.Label"
+                                        tools:text="ОКТЯБРЬ 2026" />
+
+                                    <LinearLayout
+                                        android:id="@+id/chipStatus"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingStart="10dp"
+                                        android:paddingTop="5dp"
+                                        android:paddingEnd="11dp"
+                                        android:paddingBottom="5dp">
+
+                                        <View
+                                            android:id="@+id/dotStatus"
+                                            android:layout_width="6dp"
+                                            android:layout_height="6dp" />
+
+                                        <TextView
+                                            android:id="@+id/tvStatus"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="6dp"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:textSize="10.5sp"
+                                            tools:text="В норме" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <FrameLayout
+                                    android:layout_width="252dp"
+                                    android:layout_height="252dp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="2dp">
+
+                                    <com.example.trafficmonitor.ui.GradientRingView
+                                        android:id="@+id/ringView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center_horizontal"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Расход за месяц"
+                                            android:textAppearance="@style/TextAppearance.TM.Caption" />
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:gravity="bottom"
+                                            android:orientation="horizontal">
+
+                                            <com.example.trafficmonitor.ui.CountUpTextView
+                                                android:id="@+id/tvTotal"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/manrope_extrabold"
+                                                android:includeFontPadding="false"
+                                                android:letterSpacing="-0.04"
+                                                android:text="0,0"
+                                                android:textColor="@color/text_primary"
+                                                android:textSize="42sp" />
+
+                                            <TextView
+                                                android:id="@+id/tvUnit"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="6dp"
+                                                android:layout_marginBottom="7dp"
+                                                android:fontFamily="@font/manrope_bold"
+                                                android:text="МБ"
+                                                android:textColor="@color/text_secondary"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:id="@+id/tvOfLimit"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="6dp"
+                                            android:text="Лимит не задан"
+                                            android:textAppearance="@style/TextAppearance.TM.Caption" />
+                                    </LinearLayout>
+                                </FrameLayout>
+
+                                <TextView
+                                    android:id="@+id/tvToday"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Сегодня: —"
+                                    android:textAppearance="@style/TextAppearance.TM.Caption" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@color/divider" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center_horizontal"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:letterSpacing="0.1"
+                                            android:text="ОСТАЛОСЬ"
+                                            android:textColor="@color/text_tertiary"
+                                            android:textSize="9.5sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvLeftValue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:text="—"
+                                            android:textAppearance="@style/TextAppearance.TM.Stat" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="1dp"
+                                        android:layout_height="30dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:background="@color/divider" />
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center_horizontal"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:letterSpacing="0.1"
+                                            android:text="ЛИМИТ"
+                                            android:textColor="@color/text_tertiary"
+                                            android:textSize="9.5sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvLimitValue"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:text="—"
+                                            android:textAppearance="@style/TextAppearance.TM.Stat" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="1dp"
+                                        android:layout_height="30dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:background="@color/divider" />
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center_horizontal"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:letterSpacing="0.1"
+                                            android:text="ПРОГНОЗ"
+                                            android:textColor="@color/text_tertiary"
+                                            android:textSize="9.5sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvForecast"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:text="—"
+                                            android:textAppearance="@style/TextAppearance.TM.Stat" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </com.example.trafficmonitor.ui.GlassLayout>
+
+                        <!-- Плашка «нет доступа» -->
+                        <LinearLayout
+                            android:id="@+id/cardAccess"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:background="@drawable/bg_access_banner"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="14dp"
+                            android:paddingTop="12dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="12dp"
+                            android:visibility="gone"
+                            tools:visibility="visible">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_warning"
+                                app:tint="@color/accent_coral" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/manrope_semibold"
+                                    android:text="Нет доступа к статистике"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Без него Android не покажет расход по приложениям"
+                                    android:textAppearance="@style/TextAppearance.TM.Caption" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/btnAccess"
+                                android:layout_width="wrap_content"
+                                android:layout_height="44dp"
+                                android:background="@drawable/ripple_glass"
+                                android:fontFamily="@font/manrope_bold"
+                                android:gravity="center"
+                                android:paddingStart="14dp"
+                                android:paddingEnd="14dp"
+                                android:text="Разрешить"
+                                android:textColor="@color/accent_coral"
+                                android:textSize="12.5sp" />
+                        </LinearLayout>
+
+                        <!-- График -->
+                        <com.example.trafficmonitor.ui.GlassLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            app:glassRadius="30dp"
+                            app:glassShadow="false">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingStart="18dp"
+                                android:paddingTop="16dp"
+                                android:paddingEnd="18dp"
+                                android:paddingBottom="12dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Потребление"
+                                            android:textAppearance="@style/TextAppearance.TM.H2" />
+
+                                        <TextView
+                                            android:id="@+id/tvChartCaption"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="2dp"
+                                            android:text="за последние 7 дней"
+                                            android:textAppearance="@style/TextAppearance.TM.Caption" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tvChartTotal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/manrope_bold"
+                                        android:text="—"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <com.example.trafficmonitor.ui.GlassSegmentedControl
+                                    android:id="@+id/periodSwitch"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="46dp"
+                                    android:layout_marginTop="14dp" />
+
+                                <com.example.trafficmonitor.ui.UsageChartView
+                                    android:id="@+id/chartView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="162dp"
+                                    android:layout_marginTop="10dp" />
+                            </LinearLayout>
+                        </com.example.trafficmonitor.ui.GlassLayout>
+
+                        <!-- Топ приложений -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="22dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Топ приложений"
+                                    android:textAppearance="@style/TextAppearance.TM.H2" />
+
+                                <TextView
+                                    android:id="@+id/tvAppsHint"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="за текущий месяц"
+                                    android:textAppearance="@style/TextAppearance.TM.Caption" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/btnAllApps"
+                                android:layout_width="wrap_content"
+                                android:layout_height="44dp"
+                                android:background="@drawable/ripple_glass"
+                                android:fontFamily="@font/manrope_semibold"
+                                android:gravity="center"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
+                                android:text="Все →"
+                                android:textColor="@color/accent_violet"
+                                android:textSize="12.5sp" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/skeletonGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="252dp"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone"
+                            tools:visibility="visible">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <include layout="@layout/item_skeleton" />
+                                <include layout="@layout/item_skeleton" />
+                                <include layout="@layout/item_skeleton" />
+                            </LinearLayout>
+
+                            <com.example.trafficmonitor.ui.ShimmerView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/tvEmpty"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_empty_state"
+                            android:gravity="center"
+                            android:padding="20dp"
+                            android:text="Пока нет данных. Разрешите доступ к статистике."
+                            android:textAppearance="@style/TextAppearance.TM.Body"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvAppsTop"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:clipToPadding="false"
+                            android:nestedScrollingEnabled="false"
+                            android:overScrollMode="never"
+                            tools:itemCount="5"
+                            tools:listitem="@layout/item_app_usage" />
+                    </LinearLayout>
+
+                    <!-- =========================================================
+                         ПРИЛОЖЕНИЯ
+                    ========================================================== -->
+                    <LinearLayout
+                        android:id="@+id/sectionApps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        tools:visibility="gone">
+
+                        <com.example.trafficmonitor.ui.GlassLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:glassRadius="30dp"
+                            app:glassShadow="false">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="18dp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/manrope_semibold"
+                                        android:letterSpacing="0.1"
+                                        android:text="ВСЕГО ЗА МЕСЯЦ"
+                                        android:textColor="@color/text_tertiary"
+                                        android:textSize="9.5sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvAllTotal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:fontFamily="@font/manrope_extrabold"
+                                        android:text="—"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="26sp" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="46dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="@color/divider" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:orientation="vertical"
+                                    android:paddingEnd="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/manrope_semibold"
+                                        android:letterSpacing="0.1"
+                                        android:text="ПРИЛОЖЕНИЙ"
+                                        android:textColor="@color/text_tertiary"
+                                        android:textSize="9.5sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvAllCount"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:fontFamily="@font/manrope_extrabold"
+                                        android:text="—"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="26sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </com.example.trafficmonitor.ui.GlassLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="4dp"
+                            android:text="Расход по приложениям"
+                            android:textAppearance="@style/TextAppearance.TM.H2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Топ-30 по мобильному трафику · нажмите для деталей"
+                            android:textAppearance="@style/TextAppearance.TM.Caption" />
+
+                        <com.example.trafficmonitor.ui.GlassSegmentedControl
+                            android:id="@+id/appsSortSwitch"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginBottom="10dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvAppsAll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:nestedScrollingEnabled="false"
+                            android:overScrollMode="never"
+                            tools:itemCount="8"
+                            tools:listitem="@layout/item_app_usage" />
+                    </LinearLayout>
+
+                    <!-- =========================================================
+                         ЛИМИТЫ
+                    ========================================================== -->
+                    <LinearLayout
+                        android:id="@+id/sectionLimits"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        tools:visibility="gone">
+
+                        <com.example.trafficmonitor.ui.GlassLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:glassRadius="30dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Месячный лимит"
+                                    android:textAppearance="@style/TextAppearance.TM.Label" />
+
+                                <TextView
+                                    android:id="@+id/tvLimitBig"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/manrope_extrabold"
+                                    android:letterSpacing="-0.03"
+                                    android:text="Безлимит"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="34sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Предупредим на 80% и при превышении"
+                                    android:textAppearance="@style/TextAppearance.TM.Caption" />
+
+                                <com.google.android.material.slider.Slider
+                                    android:id="@+id/sliderLimit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp"
+                                    android:value="0"
+                                    android:valueFrom="0"
+                                    android:valueTo="20480"
+                                    app:haloColor="@color/chip_selected_start"
+                                    app:haloRadius="24dp"
+                                    app:labelBehavior="gone"
+                                    app:thumbColor="@color/accent_violet"
+                                    app:thumbRadius="10dp"
+                                    app:thumbStrokeColor="@color/background"
+                                    app:thumbStrokeWidth="3dp"
+                                    app:trackColorActive="@color/accent_violet"
+                                    app:trackColorInactive="@color/slider_inactive"
+                                    app:trackCornerRadius="6dp"
+                                    app:trackHeight="12dp" />
+
+                                <HorizontalScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:scrollbars="none">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/chipOff"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="40dp"
+                                            android:background="@drawable/bg_preset_chip"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:gravity="center"
+                                            android:minWidth="88dp"
+                                            android:paddingStart="16dp"
+                                            android:paddingEnd="16dp"
+                                            android:text="Безлимит"
+                                            android:textColor="@color/chip_text"
+                                            android:textSize="12sp" />
+
+                                        <TextView
+                                            android:id="@+id/chip1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="40dp"
+                                            android:layout_marginStart="8dp"
+                                            android:background="@drawable/bg_preset_chip"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:gravity="center"
+                                            android:minWidth="64dp"
+                                            android:paddingStart="14dp"
+                                            android:paddingEnd="14dp"
+                                            android:text="1 ГБ"
+                                            android:textColor="@color/chip_text"
+                                            android:textSize="12sp" />
+
+                                        <TextView
+                                            android:id="@+id/chip3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="40dp"
+                                            android:layout_marginStart="8dp"
+                                            android:background="@drawable/bg_preset_chip"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:gravity="center"
+                                            android:minWidth="64dp"
+                                            android:paddingStart="14dp"
+                                            android:paddingEnd="14dp"
+                                            android:text="3 ГБ"
+                                            android:textColor="@color/chip_text"
+                                            android:textSize="12sp" />
+
+                                        <TextView
+                                            android:id="@+id/chip5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="40dp"
+                                            android:layout_marginStart="8dp"
+                                            android:background="@drawable/bg_preset_chip"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:gravity="center"
+                                            android:minWidth="64dp"
+                                            android:paddingStart="14dp"
+                                            android:paddingEnd="14dp"
+                                            android:text="5 ГБ"
+                                            android:textColor="@color/chip_text"
+                                            android:textSize="12sp" />
+
+                                        <TextView
+                                            android:id="@+id/chip10"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="40dp"
+                                            android:layout_marginStart="8dp"
+                                            android:background="@drawable/bg_preset_chip"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:gravity="center"
+                                            android:minWidth="64dp"
+                                            android:paddingStart="14dp"
+                                            android:paddingEnd="14dp"
+                                            android:text="10 ГБ"
+                                            android:textColor="@color/chip_text"
+                                            android:textSize="12sp" />
+
+                                        <TextView
+                                            android:id="@+id/chip20"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="40dp"
+                                            android:layout_marginStart="8dp"
+                                            android:background="@drawable/bg_preset_chip"
+                                            android:fontFamily="@font/manrope_semibold"
+                                            android:gravity="center"
+                                            android:minWidth="64dp"
+                                            android:paddingStart="14dp"
+                                            android:paddingEnd="14dp"
+                                            android:text="20 ГБ"
+                                            android:textColor="@color/chip_text"
+                                            android:textSize="12sp" />
+                                    </LinearLayout>
+                                </HorizontalScrollView>
+
+                                <TextView
+                                    android:id="@+id/tvLimitHint"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="Безлимитный тариф — предупреждения и ограничения отключены"
+                                    android:textAppearance="@style/TextAppearance.TM.Body" />
+
+                                <FrameLayout
+                                    android:id="@+id/btnSaveLimit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="54dp"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@drawable/bg_button_gradient"
+                                    android:foreground="@drawable/ripple_glass">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/manrope_bold"
+                                        android:text="Сохранить лимит"
+                                        android:textColor="@color/white"
+                                        android:textSize="14.5sp" />
+                                </FrameLayout>
+                            </LinearLayout>
+                        </com.example.trafficmonitor.ui.GlassLayout>
+
+                        <com.example.trafficmonitor.ui.GlassLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            app:glassRadius="26dp"
+                            app:glassShadow="false">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingStart="18dp"
+                                android:paddingTop="14dp"
+                                android:paddingEnd="14dp"
+                                android:paddingBottom="14dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Фоновый мониторинг"
+                                            android:textAppearance="@style/TextAppearance.TM.Title" />
+
+                                        <TextView
+                                            android:id="@+id/tvMonitorSub"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="2dp"
+                                            android:text="Проверка расхода каждые 60 секунд"
+                                            android:textAppearance="@style/TextAppearance.TM.Caption" />
+                                    </LinearLayout>
+
+                                    <com.google.android.material.switchmaterial.SwitchMaterial
+                                        android:id="@+id/switchMonitor"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="48dp"
+                                        android:minWidth="48dp"
+                                        app:thumbTint="@color/white"
+                                        app:trackTint="@color/switch_track" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="12dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:background="@color/divider" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Предупреждения приходят даже со свёрнутым приложением. После перезагрузки телефона мониторинг нужно включить снова."
+                                    android:textAppearance="@style/TextAppearance.TM.Body" />
+                            </LinearLayout>
+                        </com.example.trafficmonitor.ui.GlassLayout>
+
+                        <com.example.trafficmonitor.ui.GlassLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            app:glassRadius="26dp"
+                            app:glassShadow="false">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="18dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Оформление"
+                                    android:textAppearance="@style/TextAppearance.TM.Label" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/themeSystem"
+                                        android:layout_width="0dp"
+                                        android:layout_height="40dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/bg_preset_chip"
+                                        android:fontFamily="@font/manrope_semibold"
+                                        android:gravity="center"
+                                        android:text="Система"
+                                        android:textColor="@color/chip_text"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/themeLight"
+                                        android:layout_width="0dp"
+                                        android:layout_height="40dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/bg_preset_chip"
+                                        android:fontFamily="@font/manrope_semibold"
+                                        android:gravity="center"
+                                        android:text="Светлая"
+                                        android:textColor="@color/chip_text"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/themeDark"
+                                        android:layout_width="0dp"
+                                        android:layout_height="40dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/bg_preset_chip"
+                                        android:fontFamily="@font/manrope_semibold"
+                                        android:gravity="center"
+                                        android:text="Тёмная"
+                                        android:textColor="@color/chip_text"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </com.example.trafficmonitor.ui.GlassLayout>
+
+                        <TextView
+                            android:id="@+id/tvVersion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:text="Монитор трафика · версия 1.0"
+                            android:textAppearance="@style/TextAppearance.TM.Caption" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bottomScrim"
+        android:layout_width="match_parent"
+        android:layout_height="132dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_bottom_scrim"
+        android:clickable="false"
+        android:focusable="false" />
+
+    <com.example.trafficmonitor.ui.GlassBottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp" />
+
+</FrameLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_padding">20dp</dimen>
+    <dimen name="glass_radius">28dp</dimen>
+    <dimen name="glass_radius_small">22dp</dimen>
+    <dimen name="card_padding">18dp</dimen>
+    <dimen name="bottom_bar_height">68dp</dimen>
+    <dimen name="bottom_bar_margin">16dp</dimen>
+    <dimen name="ring_size">252dp</dimen>
+</resources>

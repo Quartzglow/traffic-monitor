@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ================= Типографика ================= -->
+    <style name="TextAppearance.TM.Display" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:fontFamily">@font/manrope_extrabold</item>
+        <item name="android:textSize">46sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.TM.H1" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/manrope_extrabold</item>
+        <item name="android:textSize">27sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.TM.H2" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.TM.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/manrope_semibold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.TM.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/manrope_regular</item>
+        <item name="android:textSize">13.5sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:lineSpacingExtra">2.5dp</item>
+    </style>
+
+    <style name="TextAppearance.TM.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/manrope_medium</item>
+        <item name="android:textSize">11.5sp</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.TM.Label" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">@font/manrope_semibold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:letterSpacing">0.12</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.TM.Stat" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- ================= Кнопки ================= -->
+    <style name="Widget.TM.PillButton" parent="Widget.Material3.Button">
+        <item name="android:minHeight">52dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/manrope_bold</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/accent_violet</item>
+        <item name="cornerRadius">26dp</item>
+        <item name="rippleColor">@color/ripple</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.TM.GhostButton" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">44dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
+        <item name="android:textColor">@color/accent_violet</item>
+        <item name="rippleColor">@color/ripple</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+
+</resources>

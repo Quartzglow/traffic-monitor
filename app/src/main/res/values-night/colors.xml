@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============ Тёмная неоновая палитра ============ -->
+    <color name="bg_top">#07060F</color>
+    <color name="bg_bottom">#14122B</color>
+
+    <color name="mesh_purple">#7C3AED</color>
+    <color name="mesh_cyan">#06B6D4</color>
+    <color name="mesh_coral">#FB7185</color>
+    <color name="mesh_lime">#A3E635</color>
+    <color name="mesh_blue">#4F46E5</color>
+
+    <!-- стекло -->
+    <color name="glass_top">#1FFFFFFF</color>
+    <color name="glass_bottom">#0AFFFFFF</color>
+    <color name="glass_stroke_top">#73FFFFFF</color>
+    <color name="glass_stroke_bottom">#0FFFFFFF</color>
+    <color name="glass_highlight">#33FFFFFF</color>
+
+    <!-- текст -->
+    <color name="text_primary">#F5F2FF</color>
+    <color name="text_secondary">#ABA5C7</color>
+    <color name="text_tertiary">#7C7699</color>
+
+    <!-- акценты -->
+    <color name="accent_violet">#A78BFA</color>
+    <color name="accent_cyan">#22D3EE</color>
+    <color name="accent_teal">#2DD4BF</color>
+    <color name="accent_coral">#FB7185</color>
+    <color name="accent_lime">#BEF264</color>
+    <color name="accent_amber">#FBBF24</color>
+
+    <!-- совместимость со старыми экранами/сервисом -->
+    <color name="primary">#8B5CF6</color>
+    <color name="primary_dark">#6D28D9</color>
+    <color name="primary_light">#2A1F52</color>
+    <color name="accent">#22D3EE</color>
+    <color name="background">#08070F</color>
+    <color name="surface">#121020</color>
+    <color name="divider">#22FFFFFF</color>
+
+    <color name="success">#2DD4BF</color>
+    <color name="warning">#FBBF24</color>
+    <color name="danger">#FB7185</color>
+    <color name="danger_background">#2AFB7185</color>
+    <color name="danger_border">#59FB7185</color>
+
+    <color name="ring_track">#24FFFFFF</color>
+    <color name="slider_inactive">#26FFFFFF</color>
+    <color name="ripple">#33FFFFFF</color>
+    <color name="nav_pill_start">#4DA78BFA</color>
+    <color name="nav_pill_end">#3322D3EE</color>
+    <color name="nav_pill_stroke">#66A78BFA</color>
+
+    <!-- нижняя панель: плотное стекло, чтобы не сливаться с контентом -->
+    <color name="nav_glass_top">#F216132B</color>
+    <color name="nav_glass_bottom">#E60B0A18</color>
+    <color name="nav_stroke_top">#99A78BFA</color>
+    <color name="nav_stroke_bottom">#40A78BFA</color>
+    <color name="icon_tile_top">#26FFFFFF</color>
+    <color name="icon_tile_bottom">#0FFFFFFF</color>
+
+    <color name="chip_bg">#14FFFFFF</color>
+    <color name="chip_border">#26FFFFFF</color>
+    <color name="chip_selected_start">#668B5CF6</color>
+    <color name="chip_selected_end">#4022D3EE</color>
+    <color name="chip_selected_border">#99A78BFA</color>
+    <color name="chip_text_selected">#E9DEFF</color>
+
+    <color name="skeleton_block">#14FFFFFF</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
+
