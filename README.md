@@ -103,6 +103,25 @@ APK появится в `app/build/outputs/apk/debug/app-debug.apk`.
 
 ---
 
+## Политика конфиденциальности
+
+Приложение не передаёт данные за пределы устройства: у него нет доступа к интернету, рекламы и аналитики. Все данные (статистика, лимит, тема) хранятся локально.
+
+Полный текст: https://skerdonovandruha-creator.github.io/traffic-monitor/privacy.html
+
+---
+
+## Сборка release-версии
+
+```bash
+# keystore.properties создаётся локально и не попадает в git
+./gradlew assembleRelease
+```
+
+Подписанный APK: `app/build/outputs/apk/release/app-release.apk`.
+
+---
+
 ## Дизайн-система
 
 | Роль | Тёмная тема | Светлая тема |

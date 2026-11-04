@@ -438,7 +438,18 @@ class MainActivity : AppCompatActivity() {
         binding.themeSystem.onPressFeedback { applyTheme(Prefs.THEME_SYSTEM) }
         binding.themeLight.onPressFeedback { applyTheme(Prefs.THEME_LIGHT) }
         binding.themeDark.onPressFeedback { applyTheme(Prefs.THEME_DARK) }
+        binding.tvPrivacy.setOnClickListener { openPrivacyPolicy() }
         updateThemeChips()
+    }
+
+    /** Политика конфиденциальности — требование RuStore (ФЗ-152). */
+    private fun openPrivacyPolicy() {
+        val url = "https://skerdonovandruha-creator.github.io/traffic-monitor/privacy.html"
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        } catch (e: Exception) {
+            Toast.makeText(this, "Не удалось открыть браузер", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun updateThemeChips() {
