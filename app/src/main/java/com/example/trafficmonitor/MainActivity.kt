@@ -444,7 +444,7 @@ class MainActivity : AppCompatActivity() {
 
     /** Политика конфиденциальности — требование RuStore (ФЗ-152). */
     private fun openPrivacyPolicy() {
-        val url = "https://skerdonovandruha-creator.github.io/traffic-monitor/privacy.html"
+        val url = "https://quartzglow.github.io/traffic-monitor/privacy.html"
         try {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         } catch (e: Exception) {

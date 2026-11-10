@@ -78,7 +78,7 @@ app/src/main/java/com/example/trafficmonitor/
 ## Сборка
 
 ```bash
-git clone https://github.com/skerdonovandruha-creator/traffic-monitor.git
+git clone https://github.com/Quartzglow/traffic-monitor.git
 cd traffic-monitor
 ./gradlew assembleDebug
 ```
@@ -107,7 +107,7 @@ APK появится в `app/build/outputs/apk/debug/app-debug.apk`.
 
 Приложение не передаёт данные за пределы устройства: у него нет доступа к интернету, рекламы и аналитики. Все данные (статистика, лимит, тема) хранятся локально.
 
-Полный текст: https://skerdonovandruha-creator.github.io/traffic-monitor/privacy.html
+Полный текст: https://quartzglow.github.io/traffic-monitor/privacy.html
 
 ---
 
@@ -148,4 +148,4 @@ APK появится в `app/build/outputs/apk/debug/app-debug.apk`.
 
 ## Лицензия
 
-[MIT](LICENSE) © 2026 skerdonovandruha-creator
+[MIT](LICENSE) © 2026 Quartzglow
