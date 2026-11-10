@@ -2,7 +2,7 @@
 
 **Android-приложение для контроля мобильного интернета — в стиле Liquid Neon Glass.**
 
-Kotlin · XML + ViewBinding · minSdk 23 · targetSdk 34
+Kotlin · XML + ViewBinding · minSdk 23 · targetSdk 34 · версия 1.0.1 (versionCode 2)
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9.22-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-6.0%2B-3DDC84?logo=android&logoColor=white)](https://developer.android.com)
@@ -120,6 +120,11 @@ APK появится в `app/build/outputs/apk/debug/app-debug.apk`.
 
 Подписанный APK: `app/build/outputs/apk/release/app-release.apk`.
 
+При выпуске обновления в RuStore `versionCode` должен строго возрастать:
+поднимите `versionCode` и `versionName` в `app/build.gradle.kts` перед сборкой.
+`applicationId` (`com.skerdonov.trafficmonitor`) менять нельзя — иначе магазин
+посчитает это новым приложением.
+
 ---
 
 ## Дизайн-система
@@ -142,6 +147,7 @@ APK появится в `app/build/outputs/apk/debug/app-debug.apk`.
 
 - `./gradlew assembleDebug` — успешно.
 - `./gradlew lintDebug` — 0 errors.
+- `./gradlew assembleRelease` — подписанный APK 1.0.1 (versionCode 2).
 - Проверено на реальном устройстве; превью в README — скриншоты с телефона.
 
 ---
