@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         prefs = Prefs(this)
+        binding.tvVersion.text = getString(R.string.app_version_footer, appVersionName())
 
         setupSystemUi()
         setupInsets()
@@ -440,6 +441,14 @@ class MainActivity : AppCompatActivity() {
         binding.themeDark.onPressFeedback { applyTheme(Prefs.THEME_DARK) }
         binding.tvPrivacy.setOnClickListener { openPrivacyPolicy() }
         updateThemeChips()
+    }
+
+    /** Версия приложения для подписи внизу экрана «Лимиты». */
+    @Suppress("DEPRECATION")
+    private fun appVersionName(): String = try {
+        packageManager.getPackageInfo(packageName, 0).versionName ?: "1.0"
+    } catch (e: Exception) {
+        "1.0"
     }
 
     /** Политика конфиденциальности — требование RuStore (ФЗ-152). */

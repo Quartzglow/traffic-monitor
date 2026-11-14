@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Монитор трафика</string>
     <string name="app_icon_description">Иконка приложения</string>
+    <string name="app_version_footer">Монитор трафика · версия %1$s</string>
 
     <string name="nav_overview">Обзор</string>
     <string name="nav_apps">Приложения</string>
